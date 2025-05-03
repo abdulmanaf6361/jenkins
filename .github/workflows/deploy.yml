@@ -23,8 +23,8 @@ jobs:
     - name: Deploy via SSH
       run: |
         ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-          cd mycicd
+          cd jenkins
           git pull origin main
-          sudo cp /home/ubuntu/mycicd/index.html /var/www/html/index.html
+          sudo cp /home/ubuntu/jenkins/index.html /var/www/html/index.html
           sudo systemctl restart nginx
         EOF
